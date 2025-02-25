@@ -10,18 +10,12 @@ package com.abdulsalam.design.pattern.java.factory;
  */
 
 public class PaymentGateway {
-    private final iPaymentProcess paymentMethod;
-
-    public PaymentGateway(iPaymentProcess paymentMethod) {
-        this.paymentMethod = paymentMethod;
-    }
-
-    public void processPayment(double amount) {
-        boolean isTransactionSucceed = this.paymentMethod.pay(amount);        
-        if (!isTransactionSucceed) {
-            System.out.print("Transaction Fails");
+    public static iPaymentProcess pay(String type) {
+        switch (type) {
+            case "debit" -> { return new PaymentWithDebit(); }
+            case "credit" -> { return new PaymentWithCredit(); }
         }
         
-        // Do other logics...
+        return null;
     }
 }
