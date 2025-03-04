@@ -5,6 +5,7 @@
 package com.abdulsalam.design.pattern.java;
 
 import com.abdulsalam.design.pattern.java.factory.PaymentGateway;
+import com.abdulsalam.design.pattern.java.singleton.GameManager;
 
 /**
  *
@@ -16,5 +17,12 @@ public class DesignPatternJava {
         // Beginning of Factory Pattern.
         PaymentGateway.pay("debit"); // Use the PayWithDebit.java class.
         // End of Factory Pattern.
+        
+        // Beginning of Singleton Pattern.
+        GameManager gm1 = GameManager.getInstance();
+        GameManager gm2 = GameManager.getInstance();
+        
+        System.out.println(gm1 == gm2);
+        // End of Singleton Pattern.        
     }
 }
